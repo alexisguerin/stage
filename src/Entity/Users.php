@@ -45,6 +45,16 @@ class Users implements UserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $delegate;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $position;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -112,6 +122,30 @@ class Users implements UserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getDelegate(): ?bool
+    {
+        return $this->delegate;
+    }
+
+    public function setDelegate(bool $delegate): self
+    {
+        $this->delegate = $delegate;
+
+        return $this;
+    }
+
+    public function getPosition(): ?string
+    {
+        return $this->position;
+    }
+
+    public function setPosition(string $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }
