@@ -1,0 +1,11 @@
+{% extends ‘base.html.twig’ %}
+{% block title %}Connexion{% endblock %}
+{% block body %}
+  <h1>Connexion</h1>
+      <h2>Formulaire de connexion ! ✅</h2>
+      <form action= »{{ path(‘security_login’) }} » method= »post » >
+          <input type= "text " id= "username " name= "_username " class= "username " value= "" />
+          <input type= "password " id= "password " class= "password " name= "_password " />
+          <button type= "submit " class= "bt-submit " >Connexion</button></form>
+{% endblock %}
+
