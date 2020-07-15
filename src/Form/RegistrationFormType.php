@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Users;
+use App\Entity\Position;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -11,6 +12,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class RegistrationFormType extends AbstractType
 {
@@ -20,7 +26,17 @@ class RegistrationFormType extends AbstractType
             ->add('username')
             ->add('email')
             ->add('delegate')
-            ->add('position')
+            ->add('position', EntityType::class, [
+                'class'=>Position::class,
+                'choice_label'=>'nom',
+            ])
+           /*  ->add('position', 'entity', array(
+                'class'=>'Position',
+                'multiple'=>false,
+                'required'=>true,
+                'empty-value'=>'--sélectionner votre poste--', 
+                'label'=>'Poste',
+            )) */
             //->add('roles')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
