@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil du CSE{% endblock %}
+
+{% block body %}
+<!--style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style-->
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://kit.fontawesome.com/d518001464.js" crossorigin="anonymous"></script>
+<!--a href="https://fr.freepik.com/photos-vecteurs-libre/fleche">Flèche vecteur créé par 0melapics - fr.freepik.com</a-->
+
+<div>
+  <h1> Bienvenue {{app.user.username}} ! </h1>
+  <h1> Vous êtes sur la page CSE du futur site web pour les salariés de la Maison des Elèves </h1>
+    <h2> Ce site est développé par GUERIN Alexis et PERRIN Marc </h2>
+</div>
+
+<div class="alert alert-primary" role="alert">
+  Le site est toujours en cours de développement, <a href="#" class="alert-link">contacter</a> les développeurs pour plus d'informations
+</div>
+
+<h3>
+    Liste des demandes et remarques faites au CSE
+</h3>
+
+<button type="button" class="btn btn-lg" onclick="window.location.href='http://127.0.0.1:8000/cse/demande'">Formuler <acronym title="Le délégué verra qui formule la demande, mais elle apparaîtra anonymement dans la liste ci-dessus">anonymement</acronym> une nouvelle demande au CSE</button>
+
+{% endblock %}
