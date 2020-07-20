@@ -51,7 +51,7 @@ class Users implements UserInterface
     private $delegate;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Position")
+     * @ORM\Column(type="string", length=255)
      */
     private $position;
 

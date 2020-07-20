@@ -18,6 +18,7 @@ class Position
     private $id;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=255)
      */
     private $nom;
@@ -40,6 +41,6 @@ class Position
     }
 
     public function __toString(){
-        return $this->getNom();
+        return $this->nom;
     }
 }

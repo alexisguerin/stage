@@ -25,18 +25,11 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('username')
             ->add('email')
+            /* ->add('position') */
+            ->add('position', EntityType::class, array(
+                'class' => 'App:Position',
+            )) 
             ->add('delegate')
-            ->add('position', EntityType::class, [
-                'class'=>Position::class,
-                'choice_label'=>'nom',
-            ])
-           /*  ->add('position', 'entity', array(
-                'class'=>'Position',
-                'multiple'=>false,
-                'required'=>true,
-                'empty-value'=>'--sélectionner votre poste--', 
-                'label'=>'Poste',
-            )) */
             //->add('roles')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
