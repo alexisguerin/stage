@@ -23,9 +23,17 @@
   Le site est toujours en cours de développement, <a href="#" class="alert-link">contacter</a> les développeurs pour plus d'informations
 </div>
 
-<h3>
+<div class="container">
+  <h3>
     Liste des demandes et remarques faites au CSE
-</h3>
+  </h3>
+  {% for demande in demandes %}
+    <div class='row'>
+    {{ demande.datecreation|date("d/m/y") }}
+    {{ demande.contenu }}
+    </div>
+  {% endfor %}
+</div>
 
 <button type="button" class="btn btn-lg" onclick="window.location.href='http://127.0.0.1:8000/cse/demande'">Formuler <acronym title="Le délégué verra qui formule la demande, mais elle apparaîtra anonymement dans la liste ci-dessus">anonymement</acronym> une nouvelle demande au CSE</button>
 

@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\DemandeCSE;
+use App\Entity\Users;
 use App\Form\CSEType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,8 +17,10 @@ class CSEController extends AbstractController
      */
     public function index()
     {
+        $demandes = $this->getDoctrine()->getRepository(DemandeCSE::class)->findBy([],['datecreation'=>'desc']);
         return $this->render('cse/index.html.twig', [
             'controller_name' => 'CSEController',
+            'demandes' => $demandes,
         ]);
     }
     /**
@@ -26,8 +29,19 @@ class CSEController extends AbstractController
     public function submit(Request $request):Response
     {
         $demande=new DemandeCSE();
+        /* $user=$this->getUsers(); */
         $form=$this->createForm(CSEType::class, $demande);
         $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('cse');
+        }
+
         return $this->render('cse/demande.html.twig', [
             'cseForm' => $form->createView(),
         ]);

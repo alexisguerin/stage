@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\DemandeCSERepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 /**
  * @ORM\Entity(repositoryClass=DemandeCSERepository::class)
@@ -88,5 +89,10 @@ class DemandeCSE
         $this->contenu = $contenu;
 
         return $this;
+    }
+
+    public function __construct()
+    {
+        $this->datecreation = new \DateTime('now');
     }
 }
