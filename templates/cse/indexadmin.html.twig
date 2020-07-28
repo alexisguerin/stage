@@ -29,17 +29,12 @@
   </h3>
   {% for demande in demandes %}
     <div class='row'>
+    {{ demande.editeur }}
+    {{ demande.email }}
     {{ demande.datecreation|date("d/m/y") }}
     {{ demande.contenu }}
     </div>
   {% endfor %}
 </div>
-
-<div class="row">
-  <button type="button" class="btn btn-lg" onclick="window.location.href='http://127.0.0.1:8000/cse/demande'">Formuler <acronym title="Le délégué verra qui formule la demande, mais elle apparaîtra anonymement dans la liste ci-dessus">anonymement</acronym> une nouvelle demande au CSE</button>
-  {% if app.user.delegate == true %}
-    <button type="button" class="btn btn-lg" onclick="window.location.href='http://127.0.0.1:8000/cse/delegue'">Espace délégué</button>
-  {% endif %}
-</div>
-
+<button type="button" class="btn btn-lg" onclick="window.location.href='http://127.0.0.1:8000/cse'">Retour</button>
 {% endblock %}

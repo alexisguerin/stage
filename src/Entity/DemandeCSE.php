@@ -34,9 +34,14 @@ class DemandeCSE
     private $datecreation;
 
     /**
-     * @ORM\Column(type="string", length=1000)
+     * @ORM\Column(type="text")
      */
     private $contenu;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
 
     public function getId(): ?int
     {
@@ -94,5 +99,17 @@ class DemandeCSE
     public function __construct()
     {
         $this->datecreation = new \DateTime('now');
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
     }
 }

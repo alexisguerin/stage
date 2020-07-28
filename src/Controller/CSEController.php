@@ -24,6 +24,17 @@ class CSEController extends AbstractController
         ]);
     }
     /**
+     * @Route("/cse/delegue", name="cseadmin")
+     */
+    public function indexadmin()
+    {
+        $demandes = $this->getDoctrine()->getRepository(DemandeCSE::class)->findBy([],['datecreation'=>'desc']);
+        return $this->render('cse/indexadmin.html.twig', [
+            'controller_name' => 'CSEController',
+            'demandes' => $demandes,
+        ]);
+    }
+    /**
      * @Route("/cse/demande", name="demandecse")
      */
     public function submit(Request $request):Response

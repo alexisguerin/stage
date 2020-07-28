@@ -14,6 +14,7 @@ class CSEType extends AbstractType
     {
         $builder
             ->add('nature')
+            ->add('email')
             ->add('editeur')
             /* ->add('datecreation', DateType::class, [
                 'widget'=>'single_text',

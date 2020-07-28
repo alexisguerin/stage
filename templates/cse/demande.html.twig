@@ -19,6 +19,9 @@
         {{ form_row(cseForm.editeur, {
             label: 'Nom'
         }) }}
+        {{ form_row(cseForm.email, {
+            label: 'Votre email'
+        }) }}
         {# <div>
             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{app.user.username}} >
         </div> #}
@@ -30,4 +33,5 @@
 
         <button type="submit" class="btn" onclick="window.location.href='http://127.0.0.1:8000/cse'">Soumettre la demande</button>
     {{ form_end(cseForm) }}
+    <button class"btn" onclick="window.location.href='http://127.0.0.1:8000/cse'">Retour</button>
 {% endblock %}
