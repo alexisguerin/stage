@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page d'accueil du CSE{% endblock %}
+{% block title %}Page d'accueil de l'Espace Comptabilité{% endblock %}
 
 {% block body %}
 <!--style>
@@ -15,7 +15,7 @@
 
 <div>
   <h1> Bienvenue {{app.user.username}} ! </h1>
-  <h1> Vous êtes sur la page CSE du futur site web pour les salariés de la Maison des Elèves </h1>
+  <h1> Vous êtes sur la page Comptable du futur site web pour les salariés de la Maison des Elèves </h1>
     <h2> Ce site est développé par GUERIN Alexis et PERRIN Marc </h2>
 </div>
 
@@ -23,19 +23,23 @@
   Le site est toujours en cours de développement, <a href="#" class="alert-link">contacter</a> les développeurs pour plus d'informations
 </div>
 
-<div class="container">
+{# <div class="container">
   <h3>
-    Liste des demandes et remarques faites au CSE
+    Formuler une demande à la comptable
   </h3>
   {% for demande in demandes %}
     <div class='row'>
     {{ demande.datecreation|date("d/m/y") }}
-    {{ demande.editeur }}
-    {{ demande.email }}
-    
     {{ demande.contenu }}
     </div>
   {% endfor %}
+</div> #}
+
+<div class="row">
+  <button type="button" class="btn btn-lg" onclick="window.location.href='http://127.0.0.1:8000/comptabilite/demande'">Formuler une nouvelle demande à la comptable</button>
+  {% if app.user.position == "Comptable" %}
+    <button type="button" class="btn btn-lg" onclick="window.location.href='http://127.0.0.1:8000/comptabilite/comptable'">Espace comptable</button>
+  {% endif %}
 </div>
-<button type="button" class="btn btn-lg" onclick="window.location.href='http://127.0.0.1:8000/cse'">Retour</button>
+
 {% endblock %}

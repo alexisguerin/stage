@@ -28,6 +28,7 @@ class RegistrationFormType extends AbstractType
             /* ->add('position') */
             ->add('position', EntityType::class, array(
                 'class' => 'App:Position',
+                
             )) 
             ->add('delegate')
             //->add('roles')
