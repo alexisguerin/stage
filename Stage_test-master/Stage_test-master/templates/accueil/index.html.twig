@@ -3,15 +3,6 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<!--style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style-->
-
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/style.css">
-<script src="https://kit.fontawesome.com/d518001464.js" crossorigin="anonymous"></script>
-<!--a href="https://fr.freepik.com/photos-vecteurs-libre/fleche">Flèche vecteur créé par 0melapics - fr.freepik.com</a-->
 
 <div>
   <h1> Bienvenue {{app.user.username}} ! </h1>
@@ -30,7 +21,7 @@
           CSE
         </div>
         <div class="row justify-content-center">
-          <button type="button" class="btn btn-lg fas fa-hands-helping" onclick="window.location.href='http://127.0.0.1:8000/cse'"></button>
+          <button type="button" class="btn btn-lg fas fa-hands-helping" onclick="window.location.href='cse'"></button>
         </div>
       </div>
       <div class="col-sm">
@@ -38,7 +29,7 @@
           Espace Comptable
         </div>
         <div class="row justify-content-center">
-          <button type="button" class="btn btn-lg fas fa-calculator" onclick="window.location.href='http://127.0.0.1:8000/comptabilite'"></button>
+          <button type="button" class="btn btn-lg fas fa-calculator"></button>
         </div>
       </div>
     <!--/div-->
@@ -48,7 +39,7 @@
           Espace Maintenance
         </div>
         <div class="row justify-content-center">
-          <button type="button" class="btn btn-lg fas fa-hammer" onclick="window.location.href='http://127.0.0.1:8000/maintenance'"></button>
+          <button type="button" class="btn btn-lg fas fa-hammer"></button>
         </div>
       </div>
       <div class="col-sm">
@@ -59,7 +50,7 @@
           Espace Veilleurs
         </div>
         <div class="row justify-content-center">
-          <button type="button" class="btn btn-lg fas fa-eye" onclick="window.location.href='http://127.0.0.1:8000/veilleur'"></button>
+          <button type="button" class="btn btn-lg far fa-eye"></button>
         </div>
       </div>
       <!--div class="col-sm">
@@ -72,11 +63,11 @@
       </div-->
     </div>
   </div>
-</div>  
-  
- 
-  
-  
+</div>
+
+
+
+
 
   <!--button type="button" class="btn">Test</button>
 

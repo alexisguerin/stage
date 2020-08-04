@@ -1,0 +1,33 @@
+{# {{form(cseForm)}} #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<script src="https://kit.fontawesome.com/d518001464.js" crossorigin="anonymous"></script>
+    
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>Formuler une demande pour le CSE</h1>
+    {{ form_start(cseForm) }}
+        {{ form_row(cseForm.editeur, {
+            label: 'Nom'
+        }) }}
+        {# <div>
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{app.user.username}} >
+        </div> #}
+        {{ form_row(cseForm.nature, {
+            label: 'Nature de la demande'
+        }) }}
+        {# {{ form_row(cseForm.datecreation)}} #}
+        {{ form_row(cseForm.contenu) }}
+
+        <button type="submit" class="btn" onclick="window.location.href='http://127.0.0.1:8000/cse'">Soumettre la demande</button>
+    {{ form_end(cseForm) }}
+{% endblock %}
